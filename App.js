@@ -21,11 +21,6 @@ export default class App extends Component<{}> {
 onPressButton(event,buttonId) {
     this.setState({
 
-     
-       
-      
-        
-
         count: this.state.count + 1,
         textValue: buttonId,
         textCal : 5.95 * (this.state.count + 1),
