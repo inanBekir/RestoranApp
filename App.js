@@ -2,37 +2,40 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View ,ScrollView ,Button} from 'react-native';
 
 
+
 export default class App extends Component<{}> {
 
   constructor(){
     super();
     this.state = {
-      
+
     textValue: '',
     textCal: 0,
     textTotal:'',
     count: 0,
-    
-
+ 
     }
-    this.onPressButton= this.onPressButton.bind(this);
-}
 
-onPressButton(event,buttonId) {
+    this.onPressButton= this.onPressButton.bind(this);
+
+    
+  }
+
+
+onPressButton(event,urnName,urnPrice) {
     this.setState({
 
         count: this.state.count + 1,
-        textValue: buttonId,
-        textCal : 5.95 * (this.state.count + 1),
-        textTotal:"ad",
-        
-        
+        textValue: urnName,
+        textCal :urnPrice * (this.state.count + 1),
+        textTotal:urnPrice * (this.state.count + 1),
+       
     })
-}
+  }
+
 
   
-
- 
+  
   render(){
   return (
     
@@ -41,20 +44,28 @@ onPressButton(event,buttonId) {
       
             <View style={styles.Box}>
               
-              <Text style={{color: 'red',fontSize:20,textAlign:"center"}}> {this.state.count} {this.state.textValue} {this.state.textCal} </Text>
-              <Text style={{color: 'red',fontSize:20}}> {this.state.textTotal} </Text>
-              
+              <Text
+               style={{color: 'red',fontSize:20,textAlign:"center"}}> {this.state.count} {this.state.textValue} {this.state.textCal} 
+              </Text>
+              <Text style={{color: 'red',fontSize:20}}> {this.state.textTotal}  </Text>
+
+              <Text style={{color: 'red',fontSize:20}}>  </Text>
+
+             
             </View>
+
+            
+           
+            
      
          
           <ScrollView style={styles.Box}>
             <View style={styles.Element2}>
-            
-            <Button title= 'Pizza' onPress={(event) => this.onPressButton(event, "pizza")}/>
-
+            <Button title= 'Pizza' onPress={(event) => this.onPressButton(event, "Pizza Polo",6.5)}/>
             </View>
             <View style={styles.Element2}>
-            <Button title= 'Hamburger' onPress={(event) => this.onPressButton(event, 1)}/>
+            <Button title= 'Hamburger' onPress={(event) => this.onPressButton(event, "Hamburger", 5.5)}/>
+           
             </View>
             <View style={styles.Element2}>
               <Text>Egemen - 1Egemen - 1Egemen - 1</Text>
