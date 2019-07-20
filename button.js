@@ -5,7 +5,7 @@ export default class MyButton extends React.Component{
 
     constructor(){
         super();
-        this.state2 = {
+        this.state = {
           
         textValue2: '',
         textCal2: 0,
@@ -17,15 +17,15 @@ export default class MyButton extends React.Component{
         this.onPressButton2= this.onPressButton2.bind(this);
     }
     
-      onPressButton2(event,urnName,urnPrice) {
-        this.setState2({
+      onPressButton(event,urnName,urnPrice) {
+        this.setState({
     
-          count2:0,
+          count:0,
          
-            count2: this.state2.count + 1,
+            count2: this.state.count + 1,
             textValue2: urnName,
-            textCal2 : urnPrice * (this.state2.count + 1),
-            textTotal2:urnPrice * (this.state2.count + 1),
+            textCal2 : urnPrice * (this.state.count + 1),
+            textTotal2:urnPrice * (this.state.count + 1),
             
             
         })

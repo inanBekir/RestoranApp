@@ -9,14 +9,13 @@ export default class App extends Component<{}> {
     super();
     this.state = {
 
-    textValue: '',
-    textCal: 0,
-    textTotal:'',
-    count: 0,
+    count: null,
+    say:null
  
     }
 
     this.onPressButton= this.onPressButton.bind(this);
+    this.onPressButton2= this.onPressButton2.bind(this);
 
     
   }
@@ -33,6 +32,17 @@ onPressButton(event,urnName,urnPrice) {
     })
   }
 
+  onPressButton2(event,urnName,urnPrice) {
+    this.setState({
+
+        say: this.state.say + 1,
+        text: urnName,
+        text2 :urnPrice * (this.state.say + 1),
+        text3:urnPrice * (this.state.say + 1),
+       
+    })
+  }
+
 
   
   
@@ -45,11 +55,11 @@ onPressButton(event,urnName,urnPrice) {
             <View style={styles.Box}>
               
               <Text
-               style={{color: 'red',fontSize:20,textAlign:"center"}}> {this.state.count} {this.state.textValue} {this.state.textCal} 
+               style={{color: 'red',fontSize:20,textAlign:"center"}}> {this.state.count + this.state.textValue + this.state.textCal}  {this.state.say + this.state.text + this.state.text2} 
               </Text>
               <Text style={{color: 'red',fontSize:20}}> {this.state.textTotal}  </Text>
 
-              <Text style={{color: 'red',fontSize:20}}>  </Text>
+              
 
              
             </View>
@@ -64,7 +74,7 @@ onPressButton(event,urnName,urnPrice) {
             <Button title= 'Pizza' onPress={(event) => this.onPressButton(event, "Pizza Polo",6.5)}/>
             </View>
             <View style={styles.Element2}>
-            <Button title= 'Hamburger' onPress={(event) => this.onPressButton(event, "Hamburger", 5.5)}/>
+            <Button title= 'Hamburger' onPress={(event) => this.onPressButton2(event, "Hamburger", 5.5)}/>
            
             </View>
             <View style={styles.Element2}>
